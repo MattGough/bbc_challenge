@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('iPlayerAZ', [
+angular.module('iplayerApp', [
   'ngRoute'
 ]).
 config(['$routeProvider', function($routeProvider) {
