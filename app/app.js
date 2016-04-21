@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('iplayerApp', [
+var iplayerApp = angular.module('iplayerApp', [
   'ngRoute'
 ]).
 config(['$routeProvider', function($routeProvider) {

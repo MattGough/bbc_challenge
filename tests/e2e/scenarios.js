@@ -1,12 +1,12 @@
 'use strict';
 
-describe ('iPlayer App', function() {
+describe ('iplayerApp', function() {
 
   describe('Program list', function() {
     it('should display a list of BBC programs', function() {
       var programList = element.all(by.repeater('program in programs'));
 
-      browser.get('/')
+      browser.get('index.html');
       expect(programList.count()).toBe(20);
     })
   });

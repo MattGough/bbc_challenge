@@ -14,11 +14,11 @@ describe('ProgramListCtrl', function() {
     ctrl = $controller('ProgramListCtrl', {$scope: scope});
   }));
 
-  it('should make an API request and assign response to scope property', function( {
+  it('should make an API request and assign response to scope property', function() {
     expect(scope.programs).toBeUndefined();
     $httpBackend.flush();
 
     expect(scope.programs).toEqual([{title: "Abadas"},
                                     {title: "A Border of Life and Death"}]);
-  }));
+  });
 });
