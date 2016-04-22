@@ -83,7 +83,7 @@ describe ('iplayerApp', function() {
       browser.sleep(2000);
       element.all(by.repeater('program in programs')).then(function(programs) {
         var programTitle = programs[0].element(by.className('title'));
-        expect(programTitle.getText()).toEqual('Training Tunes');
+        expect(programTitle.getText()).toEqual('Traed Lan');
       });
     });
   });

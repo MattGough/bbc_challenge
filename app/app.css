@@ -1,0 +1,43 @@
+body {
+ text-align: center;
+ font-family: sans-serif;
+ background-color: #252525;
+ color: #FCFCFC;
+}
+
+h1 {
+  text-align: center;
+  background-color: inherit;
+  color: hotpink;
+}
+
+a {
+  text-align: right;
+  text-decoration: none;
+  background-color: inherit;;
+  color: hotpink;
+}
+
+a:hover, a:active {
+    color: white;
+}
+
+.list {
+  text-align: left;
+  margin-left: 100px;
+  color: hotpink;
+}
+
+.programs {
+  text-align: left;
+  color: white;
+}
+
+.title {
+  color: hotpink;
+}
+
+li {
+  list-style-type: none;
+  color: white;
+}
