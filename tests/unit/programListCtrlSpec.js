@@ -1,12 +1,13 @@
 'user strict';
 
 describe('ProgramListCtrl', function() {
-  var scope, ctrl, $httpBackend;
+  var scope, ctrl, $httpBackend, response;
 
   beforeEach(module('iplayerApp'));
   beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('https://ibl.api.bbci.co.uk/ibl/v1/atoz/a/programmes?page=1').respond({atoz_programmes: {elements: [{title: "Abadas"},{title: "A Boder of Life and Death"}]}});
+    response = {atoz_programmes: {elements: [{title: "Abadas", images: {standard: 'http://ichef.bbci.co.uk/images/ic/{recipe}/p017mqg6.jpg'}}]}};
+    $httpBackend.expectGET('https://ibl.api.bbci.co.uk/ibl/v1/atoz/a/programmes?page=1').respond(response);
 
     scope = $rootScope.$new();
     ctrl = $controller('ProgramListCtrl', {$scope: scope});
@@ -17,6 +18,13 @@ describe('ProgramListCtrl', function() {
     scope.getProgramList('a');
     $httpBackend.flush();
 
-    expect(scope.programs).toEqual([{title: "Abadas"},{title: "A Boder of Life and Death"}]);
+    expect(scope.programs[0].title).toEqual("Abadas");
+  });
+
+  it('should add the image link to each element', function() {
+    scope.getProgramList('a');
+    $httpBackend.flush();
+
+    expect(scope.programs[0].image).toEqual('http://ichef.bbci.co.uk/images/ic/192x108/p017mqg6.jpg');
   });
 });
