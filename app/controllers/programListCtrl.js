@@ -4,6 +4,7 @@ iplayerApp.controller('ProgramListCtrl', ['$scope', '$http', function($scope, $h
 
   $http.get('https://ibl.api.bbci.co.uk/ibl/v1/atoz/a/programmes?page=1')
        .success(function(data) {
-          $scope.programs = data;
-       });
+          var program_array = data.atoz_programmes.elements;
+          $scope.programs = program_array;
+  });
 }]);
