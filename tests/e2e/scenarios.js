@@ -28,5 +28,14 @@ describe ('iplayerApp', function() {
         expect(programTitle.getText()).toEqual('Baby Jake');
       });
     });
+
+    it('should display a the title for each program begnning with T', function() {
+      element(by.id('T')).click();
+      browser.sleep(2000);
+      element.all(by.repeater('program in programs')).then(function(programs) {
+        var programTitle = programs[0].element(by.className('title'));
+        expect(programTitle.getText()).toEqual('TAG');
+      });
+    });
   });
 });
