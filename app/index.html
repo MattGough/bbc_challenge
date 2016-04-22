@@ -14,6 +14,8 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="ProgramListCtrl">
+  <a href="#" id="A" ng-click="getProgramList('a')">A</a>
+  <a href="#" id="B" ng-click="getProgramList('b')">B</a>
   <ul class="programs">
     <li ng-repeat="program in programs">
       <p class="title">{{program.title}}</p>

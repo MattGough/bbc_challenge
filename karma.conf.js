@@ -10,7 +10,6 @@ module.exports = function(config){
       'app/app.js',
       'app/controllers/*.js',
       'tests/unit/*.js'
-
     ],
 
     autoWatch : true,

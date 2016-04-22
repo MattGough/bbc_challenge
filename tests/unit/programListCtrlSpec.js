@@ -14,6 +14,7 @@ describe('ProgramListCtrl', function() {
 
   it('should make an API request and access program array', function() {
     expect(scope.programs).toBeUndefined();
+    scope.getProgramList('a');
     $httpBackend.flush();
 
     expect(scope.programs).toEqual([{title: "Abadas"},{title: "A Boder of Life and Death"}]);
