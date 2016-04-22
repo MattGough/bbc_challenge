@@ -12,7 +12,7 @@ iplayerApp.controller('ProgramListCtrl', ['$scope', '$http', function($scope, $h
               var string = program_array[i].images.standard;
               program_array[i].image = string.replace("{recipe}", image_size);
              }
-
+             
         $scope.programs = program_array;
     });
   }

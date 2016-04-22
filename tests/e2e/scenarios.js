@@ -52,5 +52,14 @@ describe ('iplayerApp', function() {
         expect(programTitle.getText()).toEqual('TAG');
       });
     });
+
+    it('should display a the title for each program begnning with 0-9', function() {
+      element(by.id('0-9')).click();
+      browser.sleep(2000);
+      element.all(by.repeater('program in programs')).then(function(programs) {
+        var programTitle = programs[0].element(by.className('title'));
+        expect(programTitle.getText()).toEqual('1916: The Irish Rebellion');
+      });
+    });
   });
 });
