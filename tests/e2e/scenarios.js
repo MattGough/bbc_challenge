@@ -8,7 +8,7 @@ describe ('iplayerApp', function() {
 
       it('should display a list of BBC programs begnning with A', function() {
         browser.get('index.html');
-        element(by.id('A')).click();
+        element(by.id('A1')).click();
         var programList = element.all(by.repeater('program in programs'));
         expect(programList.count()).toBe(20);
       });
@@ -32,11 +32,26 @@ describe ('iplayerApp', function() {
           expect(programSynopsis.getText()).toEqual('Pop-up book adventures with the curious Abadas');
         });
       });
+
+      it('should split A programs into four pages', function() {
+        expect(element(by.id('A1')).isPresent()).toBe(true);
+        expect(element(by.id('A2')).isPresent()).toBe(true);
+        expect(element(by.id('A3')).isPresent()).toBe(true);
+        expect(element(by.id('A4')).isPresent()).toBe(true);
+      });
+
+      it('should display multiple pages of program begnning with A', function() {
+        element(by.id('A2')).click();
+        element.all(by.repeater('program in programs')).then(function(programs) {
+          var programTitle = programs[0].element(by.className('title'));
+          expect(programTitle.getText()).toEqual('Aliens: The Big Think');
+        });
+      });
     });
 
     it('should display a the title for each program begnning with B', function() {
       browser.get('index.html');
-      element(by.id('B')).click();
+      element(by.id('B1')).click();
       browser.sleep(2000);
       element.all(by.repeater('program in programs')).then(function(programs) {
         var programTitle = programs[0].element(by.className('title'));
@@ -45,7 +60,7 @@ describe ('iplayerApp', function() {
     });
 
     it('should display a the title for each program begnning with T', function() {
-      element(by.id('T')).click();
+      element(by.id('T1')).click();
       browser.sleep(2000);
       element.all(by.repeater('program in programs')).then(function(programs) {
         var programTitle = programs[0].element(by.className('title'));
@@ -54,11 +69,21 @@ describe ('iplayerApp', function() {
     });
 
     it('should display a the title for each program begnning with 0-9', function() {
-      element(by.id('0-9')).click();
+      element(by.id('0-91')).click();
       browser.sleep(2000);
       element.all(by.repeater('program in programs')).then(function(programs) {
         var programTitle = programs[0].element(by.className('title'));
         expect(programTitle.getText()).toEqual('1916: The Irish Rebellion');
+      });
+    });
+
+    it('should split lists of more than 20 programs into separate pages', function() {
+      element(by.id('T1')).click();
+      element(by.id('T3')).click();
+      browser.sleep(2000);
+      element.all(by.repeater('program in programs')).then(function(programs) {
+        var programTitle = programs[0].element(by.className('title'));
+        expect(programTitle.getText()).toEqual('Training Tunes');
       });
     });
   });

@@ -2,8 +2,8 @@
 
 iplayerApp.controller('ProgramListCtrl', ['$scope', '$http', function($scope, $http) {
 
-  $scope.getProgramList = function(letter) {
-    $http.get('https://ibl.api.bbci.co.uk/ibl/v1/atoz/' + letter + '/programmes?page=1')
+  $scope.getProgramList = function(letter, number) {
+    $http.get('https://ibl.api.bbci.co.uk/ibl/v1/atoz/' + letter + '/programmes?page=' + number)
          .success(function(data) {
             var program_array = data.atoz_programmes.elements;
             var image_size = "192x108";
@@ -12,7 +12,7 @@ iplayerApp.controller('ProgramListCtrl', ['$scope', '$http', function($scope, $h
               var string = program_array[i].images.standard;
               program_array[i].image = string.replace("{recipe}", image_size);
              }
-             
+
         $scope.programs = program_array;
     });
   }

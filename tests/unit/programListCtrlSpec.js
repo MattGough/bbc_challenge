@@ -15,14 +15,14 @@ describe('ProgramListCtrl', function() {
 
   it('should make an API request and access program array', function() {
     expect(scope.programs).toBeUndefined();
-    scope.getProgramList('a');
+    scope.getProgramList('a', '1');
     $httpBackend.flush();
 
     expect(scope.programs[0].title).toEqual("Abadas");
   });
 
   it('should add the image link to each element', function() {
-    scope.getProgramList('a');
+    scope.getProgramList('a', '1');
     $httpBackend.flush();
 
     expect(scope.programs[0].image).toEqual('http://ichef.bbci.co.uk/images/ic/192x108/p017mqg6.jpg');

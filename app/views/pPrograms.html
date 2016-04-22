@@ -1,0 +1,15 @@
+<div ng-init="getProgramList('p', '1')">
+  <h2>P</h2>
+  <a href="#/p" id="P1" ng-click="getProgramList('p', '1')">1</a>
+  <a href="#/p" id="P2" ng-click="getProgramList('p', '2')">2</a>
+  <a href="#/p" id="P3" ng-click="getProgramList('p', '3')">3</a>
+  <a href="#/p" id="P4" ng-click="getProgramList('p', '4')">4</a>
+  <a href="#/p" id="P5" ng-click="getProgramList('p', '5')">5</a>
+<ul class="programs">
+  <li ng-repeat="program in programs">
+    <p class="title">{{program.title}}</p>
+    <img id="{{program.image}}"src="{{program.image}}">
+    <p class="synopsis">{{program.synopses.small}}</p>
+  </li>
+</ul>
+</div>
