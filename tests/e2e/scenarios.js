@@ -20,10 +20,17 @@ describe ('iplayerApp', function() {
         });
       });
 
-     it('should display an image with each program listed', function() {
+      it('should display an image with each program listed', function() {
         expect(element(by.id('http://ichef.bbci.co.uk/images/ic/192x108/p017mqg6.jpg')).isPresent()).toBe(true);
         expect(element(by.id('http://ichef.bbci.co.uk/images/ic/192x108/p02h7n5x.jpg')).isPresent()).toBe(true);
         expect(element(by.id('http://ichef.bbci.co.uk/images/ic/192x108/p028s846.png')).isPresent()).toBe(true);
+      });
+
+      it('should display a the synopsis for each program begnning with A', function() {
+        element.all(by.repeater('program in programs')).then(function(programs) {
+          var programSynopsis = programs[0].element(by.className('synopsis'));
+          expect(programSynopsis.getText()).toEqual('Pop-up book adventures with the curious Abadas');
+        });
       });
     });
 
