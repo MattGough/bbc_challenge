@@ -1,7 +1,7 @@
 'user strict';
 
 describe('ProgramListCtrl', function() {
-  var scope, ctrl, $httpBackend, data, atoz_programmes;
+  var scope, ctrl, $httpBackend;
 
   beforeEach(module('iplayerApp'));
   beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
