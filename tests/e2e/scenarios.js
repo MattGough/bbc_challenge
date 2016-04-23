@@ -29,7 +29,7 @@ describe ('iplayerApp', function() {
       it('should display a the synopsis for each program begnning with A', function() {
         element.all(by.repeater('program in programs')).then(function(programs) {
           var programSynopsis = programs[0].element(by.className('synopsis'));
-          expect(programSynopsis.getText()).toEqual('Rhaglen animeiddio i blant ifanc yn canolbwyntio ar gyflwyno geiriau newydd. Animation ...');
+          expect(programSynopsis.getText()).toEqual('Pop-up book adventures with the curious Abadas');
         });
       });
 
