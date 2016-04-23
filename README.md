@@ -25,10 +25,14 @@ We would like to see TDD being applied in this exercise.
 
  To use locally:
  ```
-$ git clone https://github.com/MattGough/bbc_challenge.git
+$ git clone <this-repo> or unzip bbc_challenge folder
 $ cd bbc_challenge
 $ npm install              // install dependencies
 $ npm start                // start server on port 8000
 $ npm run protractor       // run protractor feature tests, server must also be running
 $ npm test                 // run unit tests with karma
  ```
+
+#### Note on testing
+
+Because the list of programmes is continually updated, the feature test expectations, for e.g. title, synopses, need to be altered to check against existing program details. Unfortunately due to the time limit, I was unable to implement a better solution in time. Although I am working on one!
