@@ -1,7 +1,7 @@
-### BBC iPlayer A-Z
+## BBC iPlayer A-Z
 
-This is webpage built for this [BBC Challenge](https://www.gapjumpers.me/questions/bbc-digital/qs-286/?just_committed=True).
-
+This is a webpage built for this [BBC Challenge](https://www.gapjumpers.me/questions/bbc-digital/qs-286/?just_committed=True).
+It was built using [AngularJS](https://angularjs.org/), in a [Node.js](https://nodejs.org/en/) environment and hosted with [Sinatra](https://github.com/sinatra/sinatra). Feature test were written with [Protractor](http://www.protractortest.org/#/) and unit tests with [Karma](https://karma-runner.github.io/0.13/index.html). Visit the finished page at https://iplayeraz.herokuapp.com/.
 
 #### Challenge Brief
 
@@ -20,3 +20,15 @@ Each of the listing pages should include:
 You may implement your solution in PHP/ node.js or any appropriate (i.e. non-obscure) language. But please make sure your solution is working end-to-end and you include instructions for us to run and test your code. Please host your application on Heroku or similar and include a link.
 
 We would like to see TDD being applied in this exercise.
+
+#### How to Use
+
+ To use locally:
+ ```
+$ git clone https://github.com/MattGough/bbc_challenge.git
+$ cd bbc_challenge
+$ npm install              // install dependencies
+$ npm start                // start server on port 8000
+$ npm run protractor       // run protractor feature tests, server must also be running
+$ npm test                 // run unit tests with karma
+ ```
