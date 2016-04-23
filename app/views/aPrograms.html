@@ -8,8 +8,8 @@
 </div>
 <ul>
   <li ng-repeat="program in programs">
-    <p class="title">{{program.title}}</p>
-    <img id="{{program.image}}"src="{{program.image}}">
+    <p class="title"><a href="http://bbc.co.uk/iplayer/episode/{{program.initial_children[0].id}}" id="{{program.title}}">{{program.title}}</a></p>
+    <a id="{{program.image}}" href="http://bbc.co.uk/iplayer/episode/{{program.initial_children[0].id}}"><img src="{{program.image}}" title="Watch {{program.title}}"></a>
     <p class="synopsis">{{program.synopses.small}}</p>
   </li>
 </ul>

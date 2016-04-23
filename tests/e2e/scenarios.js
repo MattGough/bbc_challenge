@@ -29,11 +29,27 @@ describe ('iplayerApp', function() {
       it('should display a the synopsis for each program begnning with A', function() {
         element.all(by.repeater('program in programs')).then(function(programs) {
           var programSynopsis = programs[0].element(by.className('synopsis'));
-          expect(programSynopsis.getText()).toEqual('Pop-up book adventures with the curious Abadas');
+          expect(programSynopsis.getText()).toEqual('Rhaglen animeiddio i blant ifanc yn canolbwyntio ar gyflwyno geiriau newydd. Animation ...');
         });
       });
 
+      it('should display title as link to watch program', function() {
+        element(by.id('Adventure')).click();
+        browser.sleep(5000);
+        expect(browser.driver.getCurrentUrl()).toEqual('http://www.bbc.co.uk/iplayer/episode/p00y1hbb/adventure-zambezi-3-livingstones-river');
+      });
+
+      it('should display image as link to watch program', function() {
+        browser.get('index.html');
+        element(by.id('A1')).click();
+        element(by.id('http://ichef.bbci.co.uk/images/ic/192x108/p028s846.png')).click();
+        browser.sleep(5000);
+        expect(browser.driver.getCurrentUrl()).toEqual('http://www.bbc.co.uk/iplayer/episode/p00y1hbb/adventure-zambezi-3-livingstones-river');
+      });
+
       it('should split A programs into four pages', function() {
+        browser.get('index.html');
+        element(by.id('A1')).click();
         expect(element(by.id('A1')).isPresent()).toBe(true);
         expect(element(by.id('A2')).isPresent()).toBe(true);
         expect(element(by.id('A3')).isPresent()).toBe(true);
@@ -44,7 +60,7 @@ describe ('iplayerApp', function() {
         element(by.id('A2')).click();
         element.all(by.repeater('program in programs')).then(function(programs) {
           var programTitle = programs[0].element(by.className('title'));
-          expect(programTitle.getText()).toEqual('Aliens: The Big Think');
+          expect(programTitle.getText()).toEqual("Alistair Cooke's America");
         });
       });
     });
@@ -83,7 +99,7 @@ describe ('iplayerApp', function() {
       browser.sleep(2000);
       element.all(by.repeater('program in programs')).then(function(programs) {
         var programTitle = programs[0].element(by.className('title'));
-        expect(programTitle.getText()).toEqual('Traed Lan');
+        expect(programTitle.getText()).toEqual('The Tracy Beaker Survival Files - Tales from the Dumping Ground');
       });
     });
   });
